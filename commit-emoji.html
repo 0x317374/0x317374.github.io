@@ -143,13 +143,13 @@
     }
   }
 
-  function build(item, i) {
+  function build(item, i, extend = '') {
     var li = document.createElement('li');
     li.innerHTML = `
     <table>
     <td><input onkeydown="on_key_down(event, ${i})" value="${item[1]}" size="${size}" style="text-align: left"  onClick="tmp_select(this, ${i})"></td>
     <td style="width: 25px;text-align: center">${item[0]}</td>
-    <td>${item[2]}</td>
+    <td>${item[2]} ${extend}</td>
     </table>
     `;
     return li;
@@ -186,7 +186,7 @@
           break;
         }
       }
-      top_container.appendChild(build(top_data[i], index));
+      top_container.appendChild(build(top_data[i], index, `<sup>(${get_select_count(top_data[i])})</sup>`));
     }
   }
 
