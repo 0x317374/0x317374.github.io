@@ -17,9 +17,12 @@
       display:         flex;
       flex-direction:  row;
       justify-content: flex-start;
-      list-style:      none;
       padding:         0;
       white-space:     nowrap;
+    }
+
+    .desc {
+      color: #555555;
     }
   </style>
 </head>
@@ -35,8 +38,10 @@
     </ul>
   </td>
   <td style="border-left: 2px solid #dddddd;width: 33.3%;background: #f0f0f0">
-    <ul style="list-style: none" id="list2">
-    </ul>
+    <div style="overflow-y: scroll;max-height: 99vh">
+      <ul style="list-style: none" id="list2">
+      </ul>
+    </div>
   </td>
 </table>
 
@@ -112,7 +117,7 @@
       size = data[i][1].length;
     }
   }
-  size -= 7;
+  size -= 7.5;
 
   function get_select_count(item) {
     return parseInt(localStorage.getItem(item[1])) || 0;
@@ -173,7 +178,7 @@
     <table>
     <td><input onkeydown="on_key_down(event, ${i})" value="${item[1]}" size="${size}" style="text-align: left"  onClick="tmp_select(this, ${i})"></td>
     <td style="width: 25px;text-align: center">${item[0]}</td>
-    <td>${item[2]} ${extend}</td>
+    <td><div class="desc">${item[2]} ${extend}</div></td>
     </table>
     `;
     return li;
@@ -202,7 +207,7 @@
     var top_container = document.getElementById('list2');
     top_container.innerHTML = '';
     for(var i = 0; i<top_data.length; i++) {
-      if(i===14) break;
+      // if(i===14) break;
       var index = 0;
       for(var j = 0; j<data.length; j++) {
         if(data[j][1]===top_data[i][1]) {
