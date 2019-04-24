@@ -100,6 +100,11 @@
 
   function tmp_select(t, i) {
     t.select();
+    let item = data[i];
+    let lastCount = get_select_count(item);
+    localStorage.setItem(item[1], (lastCount + 1) + '');
+    copyTextToClipboard(item[1]);
+    render();
   }
 
   function fallbackCopyTextToClipboard(text) {
@@ -134,12 +139,11 @@
 
   function on_key_down(event, i) {
     if(event.ctrlKey && event.code==='KeyC') {
-      let item = data[i];
-      let lastCount = get_select_count(item);
-      localStorage.setItem(item[1], (lastCount + 1) + '');
-      copyTextToClipboard(item[1]);
-      console.log(item);
-      render();
+      // let item = data[i];
+      // let lastCount = get_select_count(item);
+      // localStorage.setItem(item[1], (lastCount + 1) + '');
+      // copyTextToClipboard(item[1]);
+      // render();
     }
   }
 
