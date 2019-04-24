@@ -3,19 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>🐛</title>
-</head>
-<body>
+  <style>
+    input {
+      border:        2px solid #dddddd;
+      padding:       1px 4px 1px 4px;
+      border-radius: 4px;
+      color:         #888888;
+      display:       inline-block;
+      background:    #fefefe;
+    }
 
-<table>
-  <td>
+    ul li {
+      display:         flex;
+      flex-direction:  row;
+      justify-content: flex-start;
+      list-style:      none;
+      padding:         0;
+      white-space:     nowrap;
+    }
+  </style>
+</head>
+<body style="margin: 0;padding: 0">
+
+<table style="width: 100%;height: 100vh">
+  <td style="width: 33.3%">
     <ul style="list-style: none" id="list">
     </ul>
   </td>
-  <td>
+  <td style="width: 33.3%">
     <ul style="list-style: none" id="list1">
     </ul>
   </td>
-  <td style="border-left: 2px solid #dddddd">
+  <td style="border-left: 2px solid #dddddd;width: 33.3%;background: #f0f0f0">
     <ul style="list-style: none" id="list2">
     </ul>
   </td>
@@ -93,6 +112,7 @@
       size = data[i][1].length;
     }
   }
+  size -= 7;
 
   function get_select_count(item) {
     return parseInt(localStorage.getItem(item[1])) || 0;
